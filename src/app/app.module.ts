@@ -9,13 +9,15 @@ import { MatSliderModule } from '@angular/material/slider';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterUserPageComponent } from './register-user-page/register-user-page.component';
+import { AccountPageComponent } from './account-page/account-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     LoginPageComponent,
-    RegisterUserPageComponent
+    RegisterUserPageComponent,
+    AccountPageComponent
   ],
   imports: [
     MatSliderModule,
