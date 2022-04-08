@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterUserPageComponent } from './register-user-page/register-user-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    LoginPageComponent,
+    RegisterUserPageComponent
   ],
   imports: [
     MatSliderModule,
