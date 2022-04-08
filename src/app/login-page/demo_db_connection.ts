@@ -1,12 +1,13 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host: "83.233.24.175:3306",
+const con = mysql.createConnection({
+  host: "83.233.24.175",
+  port: "3306",
   user: "ltu_user",
   password: "digiby"
 });
 
-con.connect(function(err: any) {
+con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 });
