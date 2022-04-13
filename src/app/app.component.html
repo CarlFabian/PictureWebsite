@@ -1,55 +1,6 @@
 <style xmlns="http://www.w3.org/1999/html">
 
-  .mat-toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    background-color: azure ;
-    color: #181f33;
-    font-weight: 600;
-  }
-  .toolbar button {
-    height: 28px;
-  }
-
-  .buttonSearch {
-    background-color: #7ad3bd;
-    margin-left: auto;
-  }
-
-  .buttonLogIn {
-    background-color: #181f33;
-    color: azure ;
-    margin-left: auto;
-  }
-
-  .buttonSignUp {
-    background-color: #181f33;
-    color: azure ;
-    margin-left:16px;
-  }
-
-
-
-  .buttonUpload {
-    background-color: #181f33;
-    color: azure;
-    margin-left: 16px;
-  }
-
-
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-
 </style>
-
 
 
 <!-- Toolbar -->
@@ -60,7 +11,12 @@
   <title>Startsida</title>
 </head>
 <body>
-  <mat-toolbar class="mat-elevation-z12">
+<div class="search-area">
+  <app-search-area></app-search-area>
+</div>
+
+<div class="mat-elevation-z12">
+  <mat-toolbar>
     <img
       height="150"
       alt="Bothnia Bladet logo"
@@ -77,7 +33,7 @@
 
     </button>
 
-    <button mat-raised-button class="buttonLogIn" >
+    <button mat-raised-button class="buttonLogIn">
 
       LOGGA IN
     </button>
@@ -85,7 +41,7 @@
       REGISTRERA DIG
     </button>
   </mat-toolbar>
-
+</div>
 
 </body>
 </html>
