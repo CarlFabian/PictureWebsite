@@ -1,8 +1,13 @@
+div {
+  margin: auto;
+  margin-top: 15em;
+}
+
 .wrapper {
   margin: auto;
-  margin-top: 20em;
-
-  background-color: azure;
+  width: 1000px;
+  height: auto;
+  outline: grey solid 1px;
   display: flex;
   justify-content: center;
   align-items: center;
