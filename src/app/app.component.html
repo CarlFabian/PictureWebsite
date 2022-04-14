@@ -1,47 +1,42 @@
-<style xmlns="http://www.w3.org/1999/html">
-
-</style>
-
-
 <!-- Toolbar -->
 
 
 <html>
 <head>
   <title>Startsida</title>
+  <link rel="stylesheet" href="app.component.css">
 </head>
 <body>
-<div class="search-area">
-  <app-search-area></app-search-area>
-</div>
+  <div class="mat-elevation-z12">
+    <mat-toolbar>
+      <img
+        height="150"
+        alt="Bothnia Bladet logo"
+        src="assets/logo.png"
+      />
 
-<div class="mat-elevation-z12">
-  <mat-toolbar>
-    <img
-      height="150"
-      alt="Bothnia Bladet logo"
-      src="assets/logo.png"
-    />
+      <button mat-raised-button class="buttonSearch">
+        SÖK BILDER
 
-    <button mat-raised-button class="buttonSearch">
-      SÖK BILDER
+      </button>
 
-    </button>
+      <button mat-raised-button class="buttonUpload">
+        LADDA UPP BILDER
 
-    <button mat-raised-button class="buttonUpload">
-      LADDA UPP BILDER
+      </button>
 
-    </button>
+      <button mat-raised-button class="buttonLogIn">
 
-    <button mat-raised-button class="buttonLogIn">
-
-      LOGGA IN
-    </button>
-    <button mat-raised-button class="buttonSignUp">
-      REGISTRERA DIG
-    </button>
-  </mat-toolbar>
-</div>
+        LOGGA IN
+      </button>
+      <button mat-raised-button class="buttonSignUp">
+        REGISTRERA DIG
+      </button>
+    </mat-toolbar>
+  </div>
+  <section class="search-area">
+    <app-search-area></app-search-area>
+  </section>
 
 </body>
 </html>

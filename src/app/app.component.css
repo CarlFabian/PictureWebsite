@@ -1,3 +1,6 @@
+body {
+  margin: 1.5em;
+}
 
 .mat-toolbar {
   position: fixed;
@@ -10,6 +13,7 @@
   background-color: azure ;
   color: #181f33;
   font-weight: 600;
+  z-index: 1;
 }
 .toolbar button {
   height: 28px;
@@ -47,7 +51,4 @@
 }
 
 
-.search-area {
-  position: absolute;
-  top: 200px;
-}
+
