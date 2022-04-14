@@ -1,21 +1,29 @@
-div {
-  margin: auto;
-  margin-top: 15em;
+
+p {
+  width: 250px;
 }
 
 .wrapper {
   margin: auto;
   width: 1000px;
-  height: auto;
+  height: 200px;
   outline: grey solid 1px;
   display: flex;
   justify-content: center;
-  align-items: center;
+
 }
- .mat-form-field {
+.top-fields {
+   margin-top: 2em;
   margin-left: 8px;
-  margin-top: 1.5em;
 }
+
+button {
+  margin-top: 8em;
+  margin-left: 50px;
+  height: 50px;
+  width: 200px;
+}
+
 
 
 
