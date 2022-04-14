@@ -18,6 +18,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatButtonModule} from "@angular/material/button";
     LoginPageComponent,
     RegisterUserPageComponent,
     AccountPageComponent,
-    SearchAreaComponent
+    SearchAreaComponent,
+    ToolbarComponent
   ],
   imports: [
     MatInputModule,
