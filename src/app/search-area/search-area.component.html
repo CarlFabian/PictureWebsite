@@ -1,35 +1,16 @@
-<div class="search-container">
+<mat-form-field appearance="fill">
+  <mat-label>Kategori</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let category of categories" [value]="category.value">
+      {{category.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
-
-    <mat-form-field appearance="fill">
-      <mat-label>Kategori</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let category of categories" [value]="category.value">
-          {{category.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-
-    <mat-form-field appearance="fill">
-      <mat-label>Från:</mat-label>
-      <input matInput [matDatepicker]="picker1">
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Till:</mat-label>
-      <input matInput [matDatepicker]="picker2">
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Sök</mat-label>
-      <input matInput placeholder="Ex. kungen, hund, bil">
-    </mat-form-field>
-
-</div>
+<mat-form-field appearance="fill">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
