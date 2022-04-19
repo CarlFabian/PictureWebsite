@@ -100,6 +100,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "PictureWebsite:build:production",
+            "firebaseProject": "picturedatabase-67ad9",
+            "firebaseHostingSite": "picturedatabase-67ad9"
+          }
         }
       }
     }
