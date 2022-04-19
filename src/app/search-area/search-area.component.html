@@ -1,14 +1,15 @@
 <div class="wrapper">
-  <mat-form-field appearance="fill">
-      <mat-label>Kategori</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let category of categories" [value]="category.value">
-          {{category.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
 
+  <mat-form-field class="top-fields" appearance="fill">
+    <mat-label>Kategori</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let category of categories" [value]="category.value">
+        {{category.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
+  <p class="top-fields">
     <mat-form-field appearance="fill">
       <mat-label>Från:</mat-label>
       <input matInput [matDatepicker]="picker1">
@@ -24,9 +25,12 @@
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
+  </p>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Sök taggar</mat-label>
-      <input matInput placeholder="Ex. kungen, hund, bil">
-    </mat-form-field>
+  <mat-form-field class="top-fields" appearance="fill">
+    <mat-label>Sök</mat-label>
+    <input matInput placeholder="Ex. kungen, hund, bil">
+  </mat-form-field>
+
+  <button mat-raised-button>Sök</button>
 </div>
