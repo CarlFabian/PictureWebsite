@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "picturedatabase-67ad9"
+  },
+  "targets": {
+    "picturedatabase-67ad9": {
+      "hosting": {
+        "PictureWebsite": [
+          "picturedatabase-67ad9"
+        ]
+      }
+    }
+  }
+}
