@@ -19,10 +19,13 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { PicturesComponent } from './pictures/pictures.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     LoginPageComponent,
     RegisterUserPageComponent,
     AccountPageComponent,
-    SearchAreaComponent
+    SearchAreaComponent,
+    PicturesComponent,
   ],
   imports: [
     MatInputModule,
@@ -45,13 +49,13 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     MatIconModule,
     MatButtonToggleModule,
     MatButtonModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-
+export class AppModule {}
