@@ -19,6 +19,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,12 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonToggleModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot([
+      {path: 'register-user-page', component: RegisterUserPageComponent},
+      {path:'account-page', component: AccountPageComponent},
+      {path:'login-page', component:LoginPageComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
