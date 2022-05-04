@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import {getStorage, ref, getDownloadURL} from "@angular/fire/storage";
+import {MatCardSmImage} from "@angular/material/card";
 
 
 @Component({
@@ -11,10 +12,16 @@ import {getStorage, ref, getDownloadURL} from "@angular/fire/storage";
 
 })
 export class PicturesComponent {
+
   pictures: Observable<any[]>;
+
   constructor(firestore: AngularFirestore) {
+
     this.pictures = firestore.collection('pictures').valueChanges();
     const storage = getStorage();
+
+
+
     getDownloadURL(ref(storage, 'kungen_med_hund.jpg'))
       .then((url) => {
         // `url` is the download URL for 'kungen_med_hund'

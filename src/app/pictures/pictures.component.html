@@ -1,7 +1,6 @@
-<ul>
-  <li class="text" *ngFor="let picture of pictures | async">
-    {{picture.title}}
-  </li>
-</ul>
 
-<img id="myimg"/>
+  <div *ngFor="let picture of pictures | async">
+    <img [src]='picture.imageUrl' />
+  </div>
+
+
