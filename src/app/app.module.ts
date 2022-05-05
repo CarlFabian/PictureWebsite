@@ -18,6 +18,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
