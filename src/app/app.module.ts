@@ -25,7 +25,10 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { PicturesComponent } from './pictures/pictures.component';
+import { ImagesComponent } from './images/images.component';
+import { ImageComponent } from './images/image/image.component';
+import { ImageListComponent } from './images/image-list/image-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { PicturesComponent } from './pictures/pictures.component';
     RegisterUserPageComponent,
     AccountPageComponent,
     SearchAreaComponent,
-    PicturesComponent,
+    ImagesComponent,
+    ImageComponent,
+    ImageListComponent,
   ],
   imports: [
     MatInputModule,
@@ -49,6 +54,7 @@ import { PicturesComponent } from './pictures/pictures.component';
     MatIconModule,
     MatButtonToggleModule,
     MatButtonModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
