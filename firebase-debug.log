@@ -1,0 +1,21 @@
+[debug] [2022-04-19T11:49:23.252Z] ----------------------------------------------------------------------
+[debug] [2022-04-19T11:49:23.254Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Oscar\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-04-19T11:49:23.254Z] CLI Version:   10.6.0
+[debug] [2022-04-19T11:49:23.254Z] Platform:      win32
+[debug] [2022-04-19T11:49:23.255Z] Node Version:  v16.14.2
+[debug] [2022-04-19T11:49:23.255Z] Time:          Tue Apr 19 2022 13:49:23 GMT+0200 (centraleuropeisk sommartid)
+[debug] [2022-04-19T11:49:23.256Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-04-19T11:49:23.263Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-04-19T11:49:23.263Z] > authorizing via signed-in user (oscste-0@student.ltu.se)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\Dokument\GitHub\PictureWebsite
+
