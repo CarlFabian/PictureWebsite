@@ -1,49 +1,9 @@
-<!-- Toolbar -->
+<app-toolbar></app-toolbar>
+<div class="container">
+  <router-outlet> </router-outlet>
+
+</div>
 
 
-<html xmlns="http://www.w3.org/1999/html">
-<head>
-  <title>Startsida</title>
-  <link rel="stylesheet" href="app.component.css">
-</head>
-<body>
-  <div class="mat-elevation-z12">
-    <mat-toolbar>
-      <img
-        height="150"
-        alt="Bothnia Bladet logo"
-        src="assets/logo.png"
-      />
 
-      <button mat-raised-button class="buttonSearch">
-        SÖK BILDER
-
-      </button>
-
-      <button mat-raised-button class="buttonUpload">
-        LADDA UPP BILDER
-
-      </button>
-
-      <button mat-raised-button class="buttonLogIn">
-
-        LOGGA IN
-      </button>
-      <button mat-raised-button class="buttonSignUp">
-        REGISTRERA DIG
-      </button>
-    </mat-toolbar>
-  </div>
-  <section class="search-area">
-    <h1>Sök efter bilder:</h1>
-    <app-search-area></app-search-area>
-  </section>
-
-<section>
-  <h1>Databas</h1>
-  <app-image></app-image>
-  <app-image-list></app-image-list>
-</section>
-</body>
-</html>
 

@@ -31,6 +31,7 @@ import { ImageComponent } from './images/image/image.component';
 import { ImageListComponent } from './images/image-list/image-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {ToolbarComponent} from "./toolbar/toolbar.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
     ImagesComponent,
     ImageComponent,
     ImageListComponent,
+    ToolbarComponent
   ],
   imports: [
     MatInputModule,
