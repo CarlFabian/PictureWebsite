@@ -46,7 +46,8 @@ import {RouterModule} from "@angular/router";
     RouterModule.forRoot([
       {path: 'register-user-page', component: RegisterUserPageComponent},
       {path:'account-page', component: AccountPageComponent},
-      {path:'login-page', component:LoginPageComponent}
+      {path:'login-page', component:LoginPageComponent},
+      {path:'search-area', component:SearchAreaComponent}
     ])
   ],
   providers: [],

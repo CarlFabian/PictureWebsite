@@ -1,20 +1,8 @@
 <!-- Toolbar -->
 
 
-<html>
-<head>
-  <title>Startsida</title>
-  <link rel="stylesheet" href="app.component.css">
-</head>
-<body>
-  <div class="mat-elevation-z12">
-  <app-toolbar></app-toolbar>
-  </div>
-  <section class="search-area">
-    <h1>Sök efter bilder:</h1>
-    <app-search-area></app-search-area>
-  </section>
+<app-toolbar></app-toolbar>
+<div class="container">
+  <router-outlet> </router-outlet>
 
-</body>
-</html>
-
+</div>
