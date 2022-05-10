@@ -18,11 +18,20 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { ImagesComponent } from './images/images.component';
+import { ImageComponent } from './images/image/image.component';
+import { ImageListComponent } from './images/image-list/image-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {ToolbarComponent} from "./toolbar/toolbar.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +40,11 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     LoginPageComponent,
     RegisterUserPageComponent,
     AccountPageComponent,
-    SearchAreaComponent
+    SearchAreaComponent,
+    ImagesComponent,
+    ImageComponent,
+    ImageListComponent,
+    ToolbarComponent
   ],
   imports: [
     MatInputModule,
@@ -45,13 +58,15 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     MatIconModule,
     MatButtonToggleModule,
     MatButtonModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-
+export class AppModule {}
