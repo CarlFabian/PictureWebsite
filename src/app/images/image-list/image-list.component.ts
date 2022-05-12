@@ -8,18 +8,38 @@ import {AngularFireDatabase} from "@angular/fire/compat/database";
   styleUrls: ['./image-list.component.css']
 })
 export class ImageListComponent implements OnInit {
+
+  categories: Category[] = [
+    {value: 'Sport', viewValue: 'Sport'},
+    {value: 'Entertainment', viewValue: 'Nöje'},
+    {value: 'Politics', viewValue: 'Politik'},
+  ];
 imageList : any[];
 rowIndexArray : any[];
 
-  constructor(private firebase:AngularFireDatabase) { }
+  constructor(private service:ImageService) { }
 
   ngOnInit(): void {
-    const imageDetailListRef = this.firebase.list('imageDetails');
-    imageDetailListRef.snapshotChanges().subscribe(
+    this.service.getImageDetailList();
+    this.service.imageDetailList.snapshotChanges().subscribe(
       list =>{
         this.imageList = list.map(item => {return item.payload.val(); });
         this.rowIndexArray = Array.from(Array(Math.ceil(this.imageList.length / 3)).keys());
       }
     );
   }
+
+  getFilteredDetailList(){
+    this.service.getFilteredImageDetailList();
+    this.service.imageDetailList.snapshotChanges().subscribe(
+      list =>{
+        this.imageList = list.map(item => {return item.payload.val(); });
+        this.rowIndexArray = Array.from(Array(Math.ceil(this.imageList.length / 3)).keys());
+      }
+    );
+  }
+}
+interface Category {
+  value: string;
+  viewValue: string;
 }

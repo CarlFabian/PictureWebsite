@@ -16,7 +16,9 @@ imageDetailList:AngularFireList<any>;
   getImageDetailList(){
     this.imageDetailList = this.firebase.list('imageDetails');
   }
-
+  getFilteredImageDetailList(){
+    this.imageDetailList = this.firebase.list('imageDetails', ref => ref.orderByChild('category').equalTo('Sport'));
+  }
   insertImageDetails(imageDetails){
     const imageDetailListRef = this.firebase.list('imageDetails');
     imageDetailListRef.push(imageDetails);

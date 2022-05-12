@@ -1,22 +1,61 @@
-<table *ngIf="imageList">
-  <tr *ngFor="let i of rowIndexArray">
-    <td>
-      <div class="imagebox">
-        <img [src]="imageList[3*i].imageUrl" class="img-fluid">
-        <span class="imagebox-desc">{{imageList[3*i].title}}</span>
-      </div>
+<div class="wrapper mat-elevation-z12">
+
+  <mat-form-field class="top-fields" appearance="fill">
+    <mat-label>Kategori</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let category of categories" [value]="category.value">
+        {{category.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p class="top-fields">
+    <mat-form-field appearance="fill">
+      <mat-label>Från:</mat-label>
+      <input matInput [matDatepicker]="picker1">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Till:</mat-label>
+      <input matInput [matDatepicker]="picker2">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  </p>
+
+  <mat-form-field class="top-fields" appearance="fill">
+    <mat-label>Sök</mat-label>
+    <input matInput placeholder="Ex. kungen, hund, bil">
+  </mat-form-field>
+
+  <button mat-raised-button>Sök</button>
+</div>
+
+<div class="image-list">
+  <table *ngIf="imageList">
+    <tr *ngFor="let i of rowIndexArray">
+      <td>
+        <div class="imagebox">
+          <img [src]="imageList[3*i].imageUrl" class="img-fluid">
+          <span class="imagebox-desc">{{imageList[3 * i].title}}</span>
+        </div>
       </td>
-    <td *ngIf="imageList[3*i+1]">
-      <div class="imagebox">
-        <img [src]="imageList[3*i+1].imageUrl" class="img-fluid">
-        <span class="imagebox-desc">{{imageList[3*i+1].title}}</span>
-      </div>
+      <td *ngIf="imageList[3*i+1]">
+        <div class="imagebox">
+          <img [src]="imageList[3*i+1].imageUrl" class="img-fluid">
+          <span class="imagebox-desc">{{imageList[3 * i + 1].title}}</span>
+        </div>
       </td>
-    <td *ngIf="imageList[3*i+2]">
-      <div class="imagebox">
-        <img [src]="imageList[3*i+2].imageUrl" class="img-fluid">
-        <span class="imagebox-desc">{{imageList[3*i+2].title}}</span>
-      </div>
-    </td>
-  </tr>
-</table>
+      <td *ngIf="imageList[3*i+2]">
+        <div class="imagebox">
+          <img [src]="imageList[3*i+2].imageUrl" class="img-fluid">
+          <span class="imagebox-desc">{{imageList[3 * i + 2].title}}</span>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

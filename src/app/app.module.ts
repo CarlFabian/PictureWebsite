@@ -9,7 +9,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterUserPageComponent } from './register-user-page/register-user-page.component';
 import { AccountPageComponent } from './account-page/account-page.component';
-import { SearchAreaComponent } from './search-area/search-area.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -40,7 +39,6 @@ import {ToolbarComponent} from "./toolbar/toolbar.component";
     LoginPageComponent,
     RegisterUserPageComponent,
     AccountPageComponent,
-    SearchAreaComponent,
     ImagesComponent,
     ImageComponent,
     ImageListComponent,
