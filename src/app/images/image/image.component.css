@@ -1,0 +1,15 @@
+
+p {
+  width: 250px;
+}
+
+
+.wrapper {
+  margin: auto;
+  width: 1000px;
+  height: 200px;
+  outline: grey solid 1px;
+  display: flex;
+  justify-content: center;
+
+}
