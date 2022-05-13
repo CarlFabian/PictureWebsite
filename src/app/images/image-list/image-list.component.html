@@ -1,11 +1,10 @@
-<div class="wrapper mat-elevation-z12">
-
+ <form class="wrapper mat-elevation-z12" [formGroup]="form" (ngSubmit)="showSearch(form)">
   <mat-form-field class="top-fields" appearance="fill">
     <mat-label>Kategori</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let category of categories" [value]="category.value">
-        {{category.viewValue}}
-      </mat-option>
+    <mat-select matNativeControl name="category" formControlName="category">
+      <mat-option value="Sport">Sport</mat-option>
+      <mat-option value="Politics">Politik</mat-option>
+      <mat-option value="Entertainment">Nöje</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -32,8 +31,8 @@
     <input matInput placeholder="Ex. kungen, hund, bil">
   </mat-form-field>
 
-  <button mat-raised-button>Sök</button>
-</div>
+  <button mat-raised-button type="submit">Sök</button>
+    </form>
 
 <div class="image-list">
   <table *ngIf="imageList">

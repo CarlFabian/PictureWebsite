@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validator, Validators} from '@angular/forms';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
 import {ImageService} from "../../shared/image.service";
@@ -48,7 +47,7 @@ export class ImageComponent implements OnInit {
       finalize(()=>{
         fileRef.getDownloadURL().subscribe((url)=>{
           formValue['imageUrl']=url;
-          this.service.insertImageDetails(formValue);
+          this.service.create(formValue);
           this.resetForm();
         })
       })

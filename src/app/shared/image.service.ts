@@ -1,26 +1,28 @@
 import {Injectable, OnInit} from '@angular/core';
-import {AngularFireDatabase, AngularFireList} from "@angular/fire/compat/database";
-import {Observable} from "rxjs";
-import firebase from "firebase/compat";
-
+import {Observable, Subject, switchMap} from "rxjs";
+import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
+import {where} from "@angular/fire/firestore";
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
-imageDetailList:AngularFireList<any>;
+  private dbPath = 'imageDetails';
+imageDetailRef: AngularFirestoreCollection<any> = null;
 
-  constructor(private firebase:AngularFireDatabase) {
-
+  constructor(private db:AngularFirestore) {
+    this.imageDetailRef = db.collection(this.dbPath);
   }
 
-  getImageDetailList(){
-    this.imageDetailList = this.firebase.list('imageDetails');
+  getAll(): AngularFirestoreCollection<any> {
+    return this.imageDetailRef;
   }
-  getFilteredImageDetailList(){
-    this.imageDetailList = this.firebase.list('imageDetails', ref => ref.orderByChild('category').equalTo('Sport'));
+
+  create(formValue): any {
+    return this.imageDetailRef.add({ ...formValue });
   }
-  insertImageDetails(imageDetails){
-    const imageDetailListRef = this.firebase.list('imageDetails');
-    imageDetailListRef.push(imageDetails);
+
+  getQuery(category: string): AngularFirestoreCollection<any> {
+    return this.db.collection(this.dbPath, ref => ref.where('category', '==', category));
   }
+
 }

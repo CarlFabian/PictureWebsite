@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ImageService} from "../../shared/image.service";
-import {AngularFireDatabase} from "@angular/fire/compat/database";
+import {map} from "rxjs";
+import {AngularFirestoreCollection} from "@angular/fire/compat/firestore";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-image-list',
@@ -8,36 +10,42 @@ import {AngularFireDatabase} from "@angular/fire/compat/database";
   styleUrls: ['./image-list.component.css']
 })
 export class ImageListComponent implements OnInit {
+  form: FormGroup;
 
-  categories: Category[] = [
-    {value: 'Sport', viewValue: 'Sport'},
-    {value: 'Entertainment', viewValue: 'Nöje'},
-    {value: 'Politics', viewValue: 'Politik'},
-  ];
+  constructor(private service:ImageService, private fb: FormBuilder) { }
+
+
 imageList : any[];
 rowIndexArray : any[];
 
-  constructor(private service:ImageService) { }
+
 
   ngOnInit(): void {
-    this.service.getImageDetailList();
-    this.service.imageDetailList.snapshotChanges().subscribe(
-      list =>{
-        this.imageList = list.map(item => {return item.payload.val(); });
-        this.rowIndexArray = Array.from(Array(Math.ceil(this.imageList.length / 3)).keys());
-      }
-    );
+    this.showImages(this.service.getAll());
+    this.form = this.fb.group({
+      title: [null],
+      category: [null]
+    });
   }
 
-  getFilteredDetailList(){
-    this.service.getFilteredImageDetailList();
-    this.service.imageDetailList.snapshotChanges().subscribe(
-      list =>{
-        this.imageList = list.map(item => {return item.payload.val(); });
-        this.rowIndexArray = Array.from(Array(Math.ceil(this.imageList.length / 3)).keys());
-      }
-    );
+  showImages(collection: AngularFirestoreCollection){
+   collection.snapshotChanges().pipe(
+     map(changes =>
+       changes.map(c =>
+         ({ ...c.payload.doc.data() })
+       )
+     )
+   ).subscribe(data => {
+     this.imageList = data;
+     this.rowIndexArray = Array.from(Array(Math.ceil(this.imageList.length / 3)).keys());
+   });
   }
+
+  showSearch(form){
+    console.log(form.value.category);
+    this.showImages(this.service.getQuery(form.value.category));
+  }
+
 }
 interface Category {
   value: string;

@@ -1,6 +1,5 @@
 <div class="card" style="width:25rem">
   <div class="card-body">
-       <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
          <div class="form-group">
            <div>
              <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
@@ -23,6 +22,5 @@
          <div class="form-group">
            <button type="submit" class="btn btn-success float-right">Submit</button>
          </div>
-       </form>
 </div>
 </div>
