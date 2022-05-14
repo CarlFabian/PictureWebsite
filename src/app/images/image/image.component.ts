@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validator, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validator, Validators} from '@angular/forms';
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
 import {ImageService} from "../../shared/image.service";
@@ -10,20 +10,20 @@ import {ImageService} from "../../shared/image.service";
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
-  imgSrc : string;
+  imgSrc : string = 'assets/placeholder.jpg';
   selectedImage: any;
   isSubmitted: boolean;
 
-  formTemplate = new FormGroup({
-    title : new FormControl('',Validators.required),
-    category : new FormControl(''),
-    imageUrl : new FormControl('',Validators.required),
-  })
+  form: FormGroup;
 
-  constructor(private storage:AngularFireStorage,private service:ImageService) { }
+  constructor(private storage:AngularFireStorage,private service:ImageService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.resetForm();
+    this.form = this.fb.group({
+      title: [null],
+      category: [null],
+      imageUrl: [null]
+    });
   }
 
   showPreview(event:any){
@@ -34,20 +34,21 @@ export class ImageComponent implements OnInit {
       this.selectedImage = event.target.files[0];
     }
     else{
-      this.imgSrc = '/assets/placeholder.jpg';
+      this.imgSrc = 'assets/placeholder.jpg';
       this.selectedImage = null;
     }
   }
-  onSubmit(formValue){
+  onSubmit(form){
+    console.log(form);
   this.isSubmitted = true;
-  if(this.formTemplate.valid){
-    var filepath = `${formValue.category}/${formValue.title}_${new Date().getTime()}`;
+  if(this.form.valid){
+    var filepath = `${form.value.category}/${form.value.title}_${new Date().getTime()}`;
     const fileRef = this.storage.ref(filepath);
     this.storage.upload(filepath, this.selectedImage).snapshotChanges().pipe(
       finalize(()=>{
         fileRef.getDownloadURL().subscribe((url)=>{
-          formValue['imageUrl']=url;
-          this.service.create(formValue);
+          form.value['imageUrl']=url;
+          this.service.create(form);
           this.resetForm();
         })
       })
@@ -56,15 +57,15 @@ export class ImageComponent implements OnInit {
   }
 
   get formControls(){
-    return this.formTemplate['controls'];
+    return this.form['controls'];
   }
 
   resetForm(){
-    this.formTemplate.reset();
-    this.formTemplate.setValue({
+    this.form.reset();
+    this.form.setValue({
       title:'',
       imageUrl:'',
-      category:'Politics'
+      category:''
     });
     this.imgSrc='/assets/placeholder.jpg';
     this.isSubmitted= false;

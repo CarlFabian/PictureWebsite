@@ -1,0 +1,22 @@
+table {
+  margin: auto;
+}
+
+p {
+  width: 250px;
+}
+
+.top-fields {
+  margin-top: 2em;
+  margin-left: 8px;
+}
+
+button {
+  margin-left: 50px;
+  height: 50px;
+  width: 200px;
+}
+
+.image-list {
+  margin-top: 3em;
+}
