@@ -20,9 +20,9 @@ export class ImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      title: [null],
-      category: [null],
-      imageUrl: [null]
+      title: [null,Validators.required],
+      category: [null,Validators.required],
+      imageUrl: [null,Validators.required]
     });
   }
 
