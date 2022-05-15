@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ImageService} from "../../shared/image.service";
 import {map} from "rxjs";
 import {AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-image-list',
@@ -44,7 +44,6 @@ rowIndexArray : any[];
   }
 
   showSearch(form){
-    console.log(form);
     this.showImages(this.service.getQuery(form));
   }
 

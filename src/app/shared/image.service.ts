@@ -7,9 +7,9 @@ import firebase from "firebase/compat";
 })
 export class ImageService {
   private dbPath = 'imageDetails';
-imageDetailRef: AngularFirestoreCollection<any> = null;
+  imageDetailRef: AngularFirestoreCollection<any> = null;
 
-  constructor(private db:AngularFirestore) {
+  constructor(private db: AngularFirestore) {
     this.imageDetailRef = db.collection(this.dbPath);
   }
 
@@ -19,17 +19,13 @@ imageDetailRef: AngularFirestoreCollection<any> = null;
 
   create(form): any {
     const date = new Date(Date()); //sample date
-    return this.imageDetailRef.add({ ...form.value, uploadDate: date});
+    return this.imageDetailRef.add({...form.value, uploadDate: date});
   }
 
   getQuery(form): AngularFirestoreCollection<any> {
-    console.log(form.value.category);
-    console.log(form.value.title);
-    console.log(form.value.minDate);
-    console.log(form.value.maxDate);
+
     return this.db.collection(this.dbPath, ref => {
       let query: firebase.firestore.Query = ref;
-
       console.log(query);
       if (form.value.category) {
         query = query.where('category', '==', form.value.category);
