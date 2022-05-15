@@ -1,8 +1,7 @@
-import {Injectable, OnInit} from '@angular/core';
-import {Observable, Subject, switchMap} from "rxjs";
+import {Injectable} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {where} from "@angular/fire/firestore";
 import firebase from "firebase/compat";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +22,32 @@ imageDetailRef: AngularFirestoreCollection<any> = null;
     return this.imageDetailRef.add({ ...form.value, uploadDate: date});
   }
 
-  getQuery(category: string): AngularFirestoreCollection<any> {
-    return this.db.collection(this.dbPath, ref => ref.where('category', '==', category));
-  }
+  getQuery(form): AngularFirestoreCollection<any> {
+    console.log(form.value.category);
+    console.log(form.value.title);
+    console.log(form.value.minDate);
+    console.log(form.value.maxDate);
+    return this.db.collection(this.dbPath, ref => {
+      let query: firebase.firestore.Query = ref;
 
+      console.log(query);
+      if (form.value.category) {
+        query = query.where('category', '==', form.value.category);
+      }
+      ;
+      if (form.value.title) {
+        query = query.where('title', '==', form.value.title)
+      }
+      ;
+      if (form.value.minDate) {
+        query = query.where('uploadDate', '>', form.value.minDate)
+      }
+      ;
+      if (form.value.maxDate) {
+        query = query.where('uploadDate', '<', form.value.maxDate)
+      }
+      ;
+      return query;
+    })
+  }
 }

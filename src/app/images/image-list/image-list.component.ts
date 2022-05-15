@@ -24,7 +24,9 @@ rowIndexArray : any[];
     this.showImages(this.service.getAll());
     this.form = this.fb.group({
       title: [null],
-      category: [null]
+      category: [null],
+      minDate: [null],
+      maxDate: [null]
     });
   }
 
@@ -42,12 +44,20 @@ rowIndexArray : any[];
   }
 
   showSearch(form){
-    console.log(form.value.category);
-    this.showImages(this.service.getQuery(form.value.category));
+    console.log(form);
+    this.showImages(this.service.getQuery(form));
+  }
+
+  resetForm(){
+    this.form.reset();
+    this.showImages(this.service.getAll());
+    this.form.setValue({
+      title:null,
+      category:null,
+      minDate:null,
+      maxDate:null
+    });
   }
 
 }
-interface Category {
-  value: string;
-  viewValue: string;
-}
+

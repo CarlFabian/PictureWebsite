@@ -63,9 +63,9 @@ export class ImageComponent implements OnInit {
   resetForm(){
     this.form.reset();
     this.form.setValue({
-      title:'',
-      imageUrl:'',
-      category:''
+      title:null,
+      imageUrl:null,
+      category:null
     });
     this.imgSrc='/assets/placeholder.jpg';
     this.isSubmitted= false;
