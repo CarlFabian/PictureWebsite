@@ -30,3 +30,7 @@ button {
 .image-list {
   margin-top: 3em;
 }
+
+.searchButton {
+  background-color: #181f33;
+  color: white}

@@ -1,3 +1,21 @@
+
+p {
+  width: 250px;
+}
+
+.card-body {
+  margin-left: 200px;
+}
+
+.wrapper {
+  margin: auto;
+  width: 1200px;
+  height: 200px;
+  outline: grey solid 1px;
+  display: flex;
+  justify-content: center;
+
+}
 table {
   margin: auto;
 }
@@ -15,6 +33,8 @@ button {
   margin-left: 50px;
   height: 50px;
   width: 200px;
+  background-color: #181f33;
+  color: white;
 }
 
 .image-list {
