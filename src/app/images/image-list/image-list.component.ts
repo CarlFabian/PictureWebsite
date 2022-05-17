@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ImageService} from "../../shared/image.service";
 import {map} from "rxjs";
 import {AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-image-list',
@@ -24,7 +24,9 @@ rowIndexArray : any[];
     this.showImages(this.service.getAll());
     this.form = this.fb.group({
       title: [null],
-      category: [null]
+      category: [null],
+      minDate: [null],
+      maxDate: [null]
     });
   }
 
@@ -42,12 +44,19 @@ rowIndexArray : any[];
   }
 
   showSearch(form){
-    console.log(form.value.category);
-    this.showImages(this.service.getQuery(form.value.category));
+    this.showImages(this.service.getQuery(form));
+  }
+
+  resetForm(){
+    this.form.reset();
+    this.showImages(this.service.getAll());
+    this.form.setValue({
+      title:null,
+      category:null,
+      minDate:null,
+      maxDate:null
+    });
   }
 
 }
-interface Category {
-  value: string;
-  viewValue: string;
-}
+

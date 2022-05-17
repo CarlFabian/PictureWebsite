@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validator, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
 import {ImageService} from "../../shared/image.service";
@@ -20,9 +20,9 @@ export class ImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      title: [null],
-      category: [null],
-      imageUrl: [null]
+      title: [null,Validators.required],
+      category: [null,Validators.required],
+      imageUrl: [null,Validators.required]
     });
   }
 
@@ -63,9 +63,9 @@ export class ImageComponent implements OnInit {
   resetForm(){
     this.form.reset();
     this.form.setValue({
-      title:'',
-      imageUrl:'',
-      category:''
+      title:null,
+      imageUrl:null,
+      category:null
     });
     this.imgSrc='/assets/placeholder.jpg';
     this.isSubmitted= false;
