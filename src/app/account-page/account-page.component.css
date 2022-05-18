@@ -1,0 +1,25 @@
+.parent {
+  margin: 5px;
+  padding: 5px 5px;
+  text-align: center;
+}
+.child {
+  font-size: 20px;
+  display: inline-block;
+  border: 2px solid #84848466;
+  padding: 6px;
+  vertical-align: top;
+  text-align: left;
+}
+
+button{
+  padding: 8px 18px;
+  font-size: 17px;
+  min-width: 180px;
+  background-color: #44f2c9;
+  border: none;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
